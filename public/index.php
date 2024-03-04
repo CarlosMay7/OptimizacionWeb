@@ -7,8 +7,9 @@ use Controllers\FeedController;
 
 $router = new Router();
 
-//Area Publica
 $router->get('/', [FeedController::class, 'index']);
 $router->post('/', [FeedController::class, 'agregarFeeds']);
+
+$router->post('/agregar', [FeedController::class, 'agregarFeeds']);
 
 $router->comprobarRutas();

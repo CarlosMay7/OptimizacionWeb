@@ -1,0 +1,28 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.busqueda {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+
+    &__barra {
+        border-radius: 1rem;
+        border: 1px solid v.$primario;
+        resize: none;
+    }
+
+    &__submit {
+        @include m.boton(lighten(v.$primario, 15%), v.$blanco);
+        width: 22%;
+        padding: 1rem;
+        
+        @include m.desktop{
+            font-size: 1.8rem;
+        }
+    }
+
+    @include m.desktop{
+        justify-content: space-around;
+    }
+}

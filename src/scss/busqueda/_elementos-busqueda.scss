@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.elementos-busqueda {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    gap: 1rem;
+
+    @include m.desktop{
+        justify-content: center;
+        flex-direction: row;
+    }  
+}
+
+.actualizar {
+    display: flex;
+    align-items: center;
+    order: 1;
+    &__icono {
+        transition: transform 500ms ease;
+        &:hover {
+            color: darken( v.$primario, 10% );
+            transform: rotateZ(360deg);
+            cursor: pointer;
+        }
+    }
+}

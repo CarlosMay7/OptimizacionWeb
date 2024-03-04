@@ -2,9 +2,7 @@
 @use 'base/mixins' as m;
 
 .barra {
-    background-color: v.$azul;
-    position: sticky;
-    top: -.1rem;
+    background-color: v.$primario;
     width: 100%;
     z-index: 10;
 

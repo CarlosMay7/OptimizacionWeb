@@ -11,12 +11,14 @@ use SimplePie\SimplePie;
 class RSS {
     public function guardarFeeds($feedsTextArea){
         $feedsURL = $this->instanciarSimplePie($feedsTextArea);
+        $feedsValidos = [];
 
         CategoriesModel::eliminarTodo();
         NewsModel::eliminarTodo();
         FeedsModel::eliminarTodo();
-
         $alertas = [];
+        $respuestaGuardarFeeds = [];
+
         foreach($feedsURL as $feedURL){
             $feedsModel = new FeedsModel();
             $feedsModel->feedName = $feedURL->get_title();
@@ -24,13 +26,15 @@ class RSS {
             if ($feedURL->get_image_url()) {
                 $feedsModel->feedIcon = $feedURL->get_image_url();
             } else {
-                $feedsModel->feedIcon = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/800px-Feed-icon.svg.png';
+                $feedsModel->feedIcon = '';
             }
 
             $exists = FeedsModel::where('feedUrl', $feedURL->get_permalink());  
             if ($exists || $feedsModel->validar()) {
                 $alertas['error'][] = 'Oops no se pudo agregar el feed: ' . $feedsModel->feedUrl;
                 continue;
+            } else {
+                $feedsValidos[] = $feedURL->get_permalink();
             }
 
             $resultadoFeed = $feedsModel->guardar();
@@ -66,8 +70,11 @@ class RSS {
                 }
             }
         }
+
+        $respuestaGuardarFeeds["feeds"] = $feedsValidos;
+        $respuestaGuardarFeeds["alertas"] = $alertas;
         
-        return $alertas;
+        return $respuestaGuardarFeeds;
     }
 
     public function instanciarSimplePie($feedsTextArea){
@@ -77,7 +84,7 @@ class RSS {
             $feed->set_feed_url($feedURL); // URL del feed RSS
             $feed->set_curl_options(array(
                 CURLOPT_SSL_VERIFYPEER => true,
-                CURLOPT_CAINFO => 'c:/wamp64/bin/php/php8.2.7/extras/ssl/cacert.pem',
+                CURLOPT_CAINFO => $_ENV["PEM_ARCHIVE"],
             ));
             $feed->enable_cache(false);
             $feed->init();
@@ -114,10 +121,10 @@ class RSS {
 
                 if(stripos($valor, $busqueda)){
                     $feedsFiltrados[] = $dato;
+                    break;
                 }
             }
         }
-        debuguear($feedsFiltrados);
         return $feedsFiltrados;
     }
 }

@@ -2,7 +2,7 @@
 @use 'base/mixins' as m;
 
 .footer {
-    background-color: v.$azul;
+    background-color: v.$primario;
     margin-top: 5rem;
     padding-top: 3rem;
     color: v.$blanco;
@@ -35,7 +35,7 @@
     }
 
     &__copyright{
-        background-color: darken(v.$azul, 10%);
+        background-color: darken(v.$primario, 10%);
         margin: 3rem 0 0 0;
         padding: 2rem 0;
         text-align: center;

@@ -1,0 +1,32 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.feed {
+    border: 1px solid v.$negro;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    @include m.shadow;
+
+    &__titulo {
+        text-align: center;
+        font-style: italic;
+    }
+
+    &__descripcion {
+        text-align: center;
+    }
+
+    &--vacio {
+        border: none;
+    }
+}
+
+.feeds {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.no-feed {
+    color: v.$gris;
+    text-align: center;
+}

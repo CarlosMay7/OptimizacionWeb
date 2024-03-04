@@ -2,10 +2,10 @@
     <div class="footer__grid">
         <div class="footer__contenido">
             <h3 class="footer__logo">
-                Concentus
+                FeedHub
             </h3>
 
-            <p class="footer__texto">En nuestra página podrás encontrar los conciertos más esperados antes que nadie</p>
+            <p class="footer__texto">Mantengase actualizado de sus mejores noticias</p>
         </div>
 
         <nav class="menu-redes"> 
@@ -31,7 +31,7 @@
     </div>
 
     <p class="footer__copyright">
-        Concentus
+        FeedHub
         <span class="footer__copyright--regular">
             - Todos los derechos reservados <?php echo date("Y"); ?>
         </span>

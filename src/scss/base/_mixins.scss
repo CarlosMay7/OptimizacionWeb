@@ -150,7 +150,7 @@
     transition: color .5s ease;
 
     &:hover {
-        color: v.$azul;
+        color: v.$primario;
         cursor: pointer;
     }
 }
@@ -173,7 +173,7 @@
     margin-top: 1.5rem;
 
     > li {
-        background-color: v.$azul;
+        background-color: v.$primario;
         padding: 1rem;
         border-radius: 0.5rem;
         font-size: 1.4rem;
