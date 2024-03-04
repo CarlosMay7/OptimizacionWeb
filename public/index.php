@@ -9,5 +9,6 @@ $router = new Router();
 
 //Area Publica
 $router->get('/', [FeedController::class, 'index']);
+$router->post('/', [FeedController::class, 'agregarFeeds']);
 
 $router->comprobarRutas();

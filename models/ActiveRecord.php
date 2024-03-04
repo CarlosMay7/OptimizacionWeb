@@ -246,4 +246,22 @@ class ActiveRecord {
         $resultado = self::$db->query($query);
         return $resultado;
     }
+
+    public static function eliminarTodo() {
+        $query = "DELETE FROM " . static::$tabla;
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
+
+    public static function consultarDatos($columnaOrden = 'newsDate') {
+        $query = "SELECT * FROM categories JOIN news ON categories.newId = news.id JOIN feeds ON news.feedId = feeds.id ORDER BY " . $columnaOrden . " ASC";
+        $resultado = self::$db->query($query);
+
+        $datos = [];
+        while ($fila = $resultado->fetch_array()) {
+            $datos[] = $fila; // Añadimos la fila al arreglo de datos
+        }
+        
+        return $datos;
+    }
 }
