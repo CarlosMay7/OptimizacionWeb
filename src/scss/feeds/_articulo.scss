@@ -14,9 +14,19 @@
         width: 3.5%;
         height: 3.5%;
     }
+
     &__titulo {
         text-align: center;
-        color: black;
+
+        a {
+            color: black;
+            transition: color 300ms ease;
+
+            &:hover {
+                color: v.$primario;
+            }
+        }
+
     }
 
     &__link {
@@ -53,5 +63,4 @@
             }
         }
     }
-    
 }

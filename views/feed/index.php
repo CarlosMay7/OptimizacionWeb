@@ -7,6 +7,13 @@
         <textarea class="busqueda__barra" name="feeds" id="url" cols="30" rows="2" placeholder="Agregue su feed"><?php foreach($urls as $url){echo $url ?? "";}?></textarea>
 
         <button type="submit" class="busqueda__submit">Buscar</button>
+        <div class="actualizar">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-reload actualizar__icono" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#57017e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
+                <path d="M20 4v5h-5" />
+            </svg>
+        </div>    
     </form>  
     
     <form class="filtros" action="/" method="GET">
@@ -19,13 +26,6 @@
         </select>
         
         <button class="busqueda__submit">Filtrar</button>
-        <div class="actualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-reload actualizar__icono" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#57017e" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
-                <path d="M20 4v5h-5" />
-            </svg>
-        </div>    
     </form>
 
     
@@ -53,7 +53,7 @@
 
                             <div class="articulo__imagen-contenedor">
                                 <a href="<?= $articulo["newsUrl"];?>">
-                                    <img class="articulo__imagen" src="<?=!empty($articulo['newsImage']) ? $articulo['newsImage'] : '/img/feedHub.png';?>">
+                                    <img class="articulo__imagen" id="imagen-articulo">
                                 </a>
                             </div>
                         </article>

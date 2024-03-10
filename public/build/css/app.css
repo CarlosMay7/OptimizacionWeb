@@ -559,7 +559,13 @@ h3 {
 }
 .articulo__titulo {
   text-align: center;
+}
+.articulo__titulo a {
   color: black;
+  transition: color 300ms ease;
+}
+.articulo__titulo a:hover {
+  color: #57017e;
 }
 .articulo__link {
   color: #1a1b15;
