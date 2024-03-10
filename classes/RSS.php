@@ -57,11 +57,6 @@ class RSS {
                 // Cateogrías de la noticia
                 $categoriesModel->allCategories = $item->get_categories();
 
-                //Revisar
-                if(!is_null($item->get_enclosure()->get_link())) {
-                    $newsModel->newsImage = $item->get_enclosure()->get_link();
-                }
-
                 $newsModel->feedId = $resultadoFeed['id'];
                 $resultadoNews = $newsModel->guardar();
                 if(!is_null($categoriesModel->allCategories)){
