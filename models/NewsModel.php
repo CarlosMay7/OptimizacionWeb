@@ -6,13 +6,12 @@ class NewsModel extends ActiveRecord{
 
     protected static $tabla = 'news';
 
-    protected static $columnasDB = ['id', 'newsTitle', 'newsUrl', 'newsDescription', 'newsImage', 'newsDate', 'feedId'];
+    protected static $columnasDB = ['id', 'newsTitle', 'newsUrl', 'newsDescription', 'newsDate', 'feedId'];
 
     public $id;
     public $newsTitle;
     public $newsUrl;
     public $newsDescription;
-    public $newsImage;
     public $newsDate;
     public $feedId;
 
@@ -22,7 +21,6 @@ class NewsModel extends ActiveRecord{
         $this->newsTitle = $args['newsTitle'] ?? '';
         $this->newsUrl = $args['newsUrl'] ?? '';
         $this->newsDescription = $args['newsDescription'] ?? '';
-        $this->newsImage = $args['newsImage'] ?? '';
         $this->newsDate = $args['newsDate'] ?? '';
         $this->feedId = $args['feedId'] ?? null;
               
@@ -37,9 +35,6 @@ class NewsModel extends ActiveRecord{
         }
         if ($this->newsDescription == '') {
             self::$alertas['error'][] = 'La descripcion no puede estar vacio';
-        }
-        if ($this->newsImage == '') {
-            self::$alertas['error'][] = 'El link de la imagen es obligatorio';
         }
         if ($this->newsDate == '') {
             self::$alertas['error'][] = 'La fecha no puede estar vacio';
